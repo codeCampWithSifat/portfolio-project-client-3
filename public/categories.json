@@ -1,0 +1,20 @@
+[
+  {
+    "_id": "01",
+    "title": "Become A Donor",
+    "image": "https://i.ibb.co/R292KS9/slider3.jpg",
+    "description": "Whole blood donation is the most common type of blood donation. During this donation, you donate about a pint (about half a liter) of whole blood"
+  },
+  {
+    "_id": "02",
+    "title": "Why Give Blood ? ",
+    "image": "https://i.ibb.co/PjtdBdh/slider2.jpg",
+    "description": "If you donate blood, it will be given to someone who needs it through a transfusion. Transfusions help replace blood that is lost due to surgery or injury.  "
+  },
+  {
+    "_id": "03",
+    "title": "How Your Donation Helps ? ",
+    "image": "https://i.ibb.co/txHYw2G/slider4.jpg",
+    "description": "If you donate blood, it will be given to someone who needs it through a transfusion. Transfusions help replace blood that is lost due to surgery or injury. "
+  }
+]
