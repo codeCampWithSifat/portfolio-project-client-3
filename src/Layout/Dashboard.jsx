@@ -1,7 +1,9 @@
 import { Link, Outlet } from "react-router-dom";
 import { FaUserSecret } from "react-icons/fa";
+import useAdmin from "../Hooks/useAdmin";
 
 const Dashboard = () => {
+  const [isAdmin] = useAdmin();
   return (
     <div>
       <div className="drawer lg:drawer-open">
@@ -29,6 +31,11 @@ const Dashboard = () => {
               </Link>
             </li>
             <li>
+              <Link to="/dashboard">
+                <FaUserSecret /> Dashboard
+              </Link>
+            </li>
+            <li>
               <Link to="/dashboard/info">
                 <FaUserSecret /> User Info
               </Link>
@@ -39,6 +46,23 @@ const Dashboard = () => {
                 <FaUserSecret /> Profile
               </Link>
             </li>
+            <li>
+              <Link to="/dashboard/createDonationRequest">
+                <FaUserSecret /> Create Donation Request
+              </Link>
+            </li>
+            <li>
+              <Link to="/dashboard/myDonationRequest">
+                <FaUserSecret /> My Donation Request
+              </Link>
+            </li>
+            {isAdmin && (
+              <li>
+                <Link to="/dashboard/allUsers">
+                  <FaUserSecret /> All Users
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>
