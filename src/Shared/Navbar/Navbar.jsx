@@ -28,7 +28,7 @@ const Navbar = () => {
       </li>
       {user?.email && (
         <li className="text-black">
-          <Link to="/dashboard/info">
+          <Link to="/dashboard">
             <summary className="text-white">Dashboard</summary>
           </Link>
         </li>

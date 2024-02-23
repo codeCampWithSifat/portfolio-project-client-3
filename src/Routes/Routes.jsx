@@ -14,6 +14,7 @@ import EditDonationRequest from "../Pages/Dashboard/EditDonationRequest/EditDona
 import MyDonationRequest from "../Pages/Dashboard/MyDonationRequest/MyDonationRequest";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import AdminRoutes from "./AdminRoutes";
+import AllBloodDonationRequest from "../Pages/Dashboard/AllBloodDonationRequest/AllBloodDonationRequest";
 
 export const router = createBrowserRouter([
   {
@@ -87,6 +88,15 @@ export const router = createBrowserRouter([
         element: (
           <AdminRoutes>
             <AllUsers />
+          </AdminRoutes>
+        ),
+        loader: () => fetch(`http://localhost:5000/totalUser`),
+      },
+      {
+        path: "allBloodDonationRequest",
+        element: (
+          <AdminRoutes>
+            <AllBloodDonationRequest />
           </AdminRoutes>
         ),
       },
