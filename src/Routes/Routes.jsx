@@ -15,6 +15,9 @@ import MyDonationRequest from "../Pages/Dashboard/MyDonationRequest/MyDonationRe
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import AdminRoutes from "./AdminRoutes";
 import AllBloodDonationRequest from "../Pages/Dashboard/AllBloodDonationRequest/AllBloodDonationRequest";
+import ContentManagement from "../Pages/Dashboard/ContentManagement/ContentManagement";
+import AllBlogs from "../Pages/Dashboard/AllBlogs/AllBlogs";
+import BlogEdit from "../Pages/Dashboard/AllBlogs/BlogEdit";
 
 export const router = createBrowserRouter([
   {
@@ -99,6 +102,29 @@ export const router = createBrowserRouter([
             <AllBloodDonationRequest />
           </AdminRoutes>
         ),
+      },
+
+      {
+        path: "contentManagement/add-blog",
+        element: <ContentManagement />,
+      },
+      {
+        path: "allBlogs",
+        element: (
+          <AdminRoutes>
+            <AllBlogs />
+          </AdminRoutes>
+        ),
+      },
+      {
+        path: "blog/:id",
+        element: (
+          <AdminRoutes>
+            <BlogEdit />
+          </AdminRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/users/add-blog/${params.id}`),
       },
     ],
   },

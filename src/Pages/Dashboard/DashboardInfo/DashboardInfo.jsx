@@ -6,21 +6,18 @@ import LoadingButton from "../../../Components/LoadingButton";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import "./DashboardInfo.css";
-import useDonationCounterQuery from "../../../Hooks/useDonationCounterQuery";
 
 const DashboardInfo = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
-  const { donationCounter } = useDonationCounterQuery();
-  console.log("UsedonationCounter", donationCounter);
+  // const { donationCounter } = useDonationCounterQuery();
+  // console.log("UsedonationCounter", donationCounter);
 
   const [itemsPerPage, setItemsPerPage] = useState(5);
   const { count } = useLoaderData();
   const numberOfPages = Math.ceil(count / itemsPerPage);
   const pages = [...Array(numberOfPages).keys()];
   const [currentPage, setCurrentPage] = useState(0);
-
-  console.log();
 
   const {
     data: donations = [],

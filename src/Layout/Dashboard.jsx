@@ -57,6 +57,11 @@ const Dashboard = () => {
                 <FaUserSecret /> My Donation Request
               </Link>
             </li>
+            <li>
+              <Link to="/dashboard/contentManagement/add-blog">
+                <FaUserSecret /> Add Blog
+              </Link>
+            </li>
             {isAdmin && (
               <>
                 <li>
@@ -67,6 +72,11 @@ const Dashboard = () => {
                 <li>
                   <Link to="/dashboard/allBloodDonationRequest">
                     <FaUserSecret /> All Blood Donation Request
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/allBlogs">
+                    <FaUserSecret /> All Blogs Request
                   </Link>
                 </li>
               </>

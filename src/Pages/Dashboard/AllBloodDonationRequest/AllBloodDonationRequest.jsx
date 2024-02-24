@@ -9,7 +9,7 @@ import "react-tabs/style/react-tabs.css";
 const AllBloodDonationRequest = () => {
   const axiosSecure = useAxiosSecure();
   const [itemsPerPage, setItemsPerPage] = useState(10);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
 
   const { countDonation } = useDonationCounter();
   const numberOfPages = Math.ceil(countDonation / itemsPerPage);
