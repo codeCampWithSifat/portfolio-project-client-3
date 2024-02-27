@@ -18,6 +18,9 @@ import AllBloodDonationRequest from "../Pages/Dashboard/AllBloodDonationRequest/
 import ContentManagement from "../Pages/Dashboard/ContentManagement/ContentManagement";
 import AllBlogs from "../Pages/Dashboard/AllBlogs/AllBlogs";
 import BlogEdit from "../Pages/Dashboard/AllBlogs/BlogEdit";
+import DashboardHome from "../Pages/Dashboard/DashboardHome/DashboardHome";
+import About from "../Pages/About/About";
+import Contact from "../Pages/Contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +34,18 @@ export const router = createBrowserRouter([
       {
         path: "login",
         element: <Login />,
+      },
+      {
+        path: "about",
+        element: <About />,
+      },
+      {
+        path: "contact",
+        element: (
+          <PrivateRoute>
+            <Contact />
+          </PrivateRoute>
+        ),
       },
       {
         path: "signup",
@@ -106,7 +121,11 @@ export const router = createBrowserRouter([
 
       {
         path: "contentManagement/add-blog",
-        element: <ContentManagement />,
+        element: (
+          <PrivateRoute>
+            <ContentManagement />
+          </PrivateRoute>
+        ),
       },
       {
         path: "allBlogs",
@@ -125,6 +144,10 @@ export const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/users/add-blog/${params.id}`),
+      },
+      {
+        path: "dashboardHome",
+        element: <DashboardHome />,
       },
     ],
   },

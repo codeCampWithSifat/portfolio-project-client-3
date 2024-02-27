@@ -13,18 +13,20 @@ const Slider = () => {
           stopOnHover={false}
           showIndicators={false}
           infiniteLoop={true}
+          showThumbs={false}
+          showStatus={false}
         >
           <div>
-            <img src={slider1} />
+            <img className="h-[700px]" src={slider1} />
           </div>
           <div>
-            <img src={slider2} />
+            <img className="h-[700px]" src={slider2} />
           </div>
           <div>
-            <img src={slider3} />
+            <img className="h-[700px]" src={slider3} />
           </div>
           <div>
-            <img src={slider4} />
+            <img className="h-[700px]" src={slider4} />
           </div>
         </Carousel>
       </div>

@@ -1,6 +1,13 @@
 import { Link, Outlet } from "react-router-dom";
 import { FaUserSecret } from "react-icons/fa";
 import useAdmin from "../Hooks/useAdmin";
+import { FaHome } from "react-icons/fa";
+import { RxDashboard } from "react-icons/rx";
+import { FaUserGraduate } from "react-icons/fa";
+import { FaUserPen } from "react-icons/fa6";
+import { GrUserAdd } from "react-icons/gr";
+import { ImBlog } from "react-icons/im";
+import { PiUsersThreeFill } from "react-icons/pi";
 
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
@@ -10,7 +17,6 @@ const Dashboard = () => {
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
           <Outlet />
-          {/* <DashboardUser /> */}
           <label
             htmlFor="my-drawer-2"
             className="btn btn-primary drawer-button lg:hidden"
@@ -28,28 +34,33 @@ const Dashboard = () => {
             {/* Sidebar content here */}
             <li>
               <Link to="/">
-                <FaUserSecret /> Home
+                <FaHome />
+                Home
               </Link>
             </li>
             <li>
-              <Link to="/dashboard">
-                <FaUserSecret /> Dashboard
+              <Link to="/dashboard/dashboardHome">
+                <RxDashboard />
+                Dashboard
               </Link>
             </li>
             <li>
               <Link to="/dashboard/info">
-                <FaUserSecret /> User Info
+                <FaUserGraduate />
+                User Info
               </Link>
             </li>
 
             <li>
               <Link to="/dashboard/profile">
-                <FaUserSecret /> Profile
+                <FaUserPen />
+                Profile
               </Link>
             </li>
             <li>
               <Link to="/dashboard/createDonationRequest">
-                <FaUserSecret /> Create Donation Request
+                <GrUserAdd />
+                Create Donation Request
               </Link>
             </li>
             <li>
@@ -59,24 +70,28 @@ const Dashboard = () => {
             </li>
             <li>
               <Link to="/dashboard/contentManagement/add-blog">
-                <FaUserSecret /> Add Blog
+                <ImBlog />
+                Add Blog
               </Link>
             </li>
+
             {isAdmin && (
               <>
+                <div className="divider divider-primary"></div>
                 <li>
                   <Link to="/dashboard/allUsers">
-                    <FaUserSecret /> All Users
+                    <PiUsersThreeFill />
+                    All Users
                   </Link>
                 </li>
                 <li>
                   <Link to="/dashboard/allBloodDonationRequest">
-                    <FaUserSecret /> All Blood Donation Request
+                    <GrUserAdd /> All Blood Donation Request
                   </Link>
                 </li>
                 <li>
                   <Link to="/dashboard/allBlogs">
-                    <FaUserSecret /> All Blogs Request
+                    <ImBlog /> All Blogs Request
                   </Link>
                 </li>
               </>

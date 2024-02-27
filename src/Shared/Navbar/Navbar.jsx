@@ -17,10 +17,10 @@ const Navbar = () => {
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/">About</Link>
+        <Link to="/about">About</Link>
       </li>
       <li>
-        <Link to="/">Causes</Link>
+        <Link to="/contact">Contact</Link>
       </li>
 
       <li>
@@ -28,7 +28,7 @@ const Navbar = () => {
       </li>
       {user?.email && (
         <li className="text-black">
-          <Link to="/dashboard">
+          <Link to="/dashboard/dashboardHome">
             <summary className="text-white">Dashboard</summary>
           </Link>
         </li>

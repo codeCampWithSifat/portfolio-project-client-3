@@ -1,6 +1,6 @@
 const DonationProcess = () => {
   return (
-    <div className="max-w-screen-lg mx-auto my-10">
+    <div className="max-w-screen-lg mx-auto my-20">
       <div className="mb-10 text-center text-3xl text-indigo-600">
         <h2>Donation Process</h2>
       </div>

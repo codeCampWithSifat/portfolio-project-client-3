@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import slider5 from "../../../assets/blood-slider/slider5.jpg";
 
 const AboutUs = () => {
@@ -35,7 +36,11 @@ const AboutUs = () => {
               </div>
             </div>
             <div>
-              <button className="btn btn-primary mt-4">About Us</button>
+              <Link to="/dashboard/createDonationRequest">
+                <button className="btn  bg-indigo-600 text-white hover:bg-indigo-600 hover:text-black  mt-4">
+                  Join As A Donor
+                </button>
+              </Link>
             </div>
           </div>
         </div>

@@ -34,7 +34,7 @@ const ContentManagement = () => {
       title: data.title,
       image: res.data?.data?.display_url,
       text: data.text,
-      status: "unPublished",
+      status: "draft",
     };
     const response = await axiosSecure.post("/users/add-blog", blogInfo);
     if (response.data?.insertedId) {
@@ -103,7 +103,7 @@ const ContentManagement = () => {
                   required: true,
                 })}
                 className="textarea textarea-bordered w-full"
-                placeholder="Bio"
+                placeholder="Description"
               ></textarea>
 
               {errors.text && (

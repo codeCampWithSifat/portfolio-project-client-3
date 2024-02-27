@@ -6,9 +6,11 @@ import useAuth from "../../../Hooks/useAuth";
 import { Link } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 
 const AllBlogs = () => {
   const axiosSecure = useAxiosSecure();
+  const axiosPublic = useAxiosPublic();
   const { user } = useAuth();
   const {
     data: blogs = [],
@@ -17,13 +19,14 @@ const AllBlogs = () => {
   } = useQuery({
     queryKey: ["blogs"],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/users/add-blog`);
+      const res = await axiosPublic.get(`/users/add-blog`);
       //   console.log(res);
       return res.data;
     },
   });
 
   const publishedBlogs = blogs.filter((blog) => blog.status === "published");
+  const draftdBlogs = blogs.filter((blog) => blog.status === "draft");
   const unPublishedBlogs = blogs.filter(
     (blog) => blog.status === "unPublished"
   );
@@ -112,9 +115,86 @@ const AllBlogs = () => {
       <div className="text-center">
         <Tabs>
           <TabList>
+            <Tab>Draft Blog</Tab>
             <Tab>Published Blog</Tab>
             <Tab>UnPublished Blog</Tab>
           </TabList>
+
+          <TabPanel>
+            <div className="overflow-x-auto mt-10">
+              <table className="table">
+                {/* head */}
+                <thead className="bg-indigo-600 text-center font-semibold text-white text-xl">
+                  <tr>
+                    <th>#</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Title</th>
+                    <th>Status</th>
+                    <th> Change Status</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody className="text-center">
+                  {draftdBlogs.map((blog, index) => (
+                    <tr key={blog._id}>
+                      <th>{index + 1}</th>
+                      <td>
+                        <div className="avatar">
+                          <div className="w-16 rounded-full">
+                            <img
+                              src={blog.image}
+                              alt="Tailwind-CSS-Avatar-component"
+                            />
+                          </div>
+                        </div>
+                      </td>
+                      <td>{blog.name}</td>
+                      <td>{blog.email}</td>
+                      <td>{blog.title}</td>
+                      <td>{blog.status}</td>
+                      {blog.status === "published" ? (
+                        <td>
+                          <button
+                            className="btn btn-sm btn-info text-white"
+                            onClick={() => handleUnPublished(blog._id)}
+                          >
+                            UnPublished
+                          </button>
+                        </td>
+                      ) : (
+                        <td>
+                          <button
+                            className="btn btn-sm btn-primary"
+                            onClick={() => handlePublished(blog._id)}
+                          >
+                            Published
+                          </button>
+                        </td>
+                      )}
+                      <td>
+                        <Link to={`/dashboard/blog/${blog._id}`}>
+                          <button className="btn btn-primary btn-sm">
+                            Edit
+                          </button>
+                        </Link>
+                      </td>
+                      <td>
+                        <button
+                          onClick={() => handleDeleteBlog(blog._id)}
+                          className="btn btn-error btn-sm text-white"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </TabPanel>
 
           <TabPanel>
             <div className="overflow-x-auto mt-10">
