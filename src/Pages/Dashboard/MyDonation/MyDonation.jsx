@@ -13,7 +13,6 @@ const MyDonation = () => {
       const res = await axiosSecure.get(
         `/users/paymentAmountDonationDone?email=${user.email}`
       );
-      console.log(res);
       return res.data;
     },
   });
@@ -36,7 +35,7 @@ const MyDonation = () => {
               <th>Status</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="text-center">
             {/* row 1 */}
             {payments.map((payment, index) => (
               <tr key={payment._id}>

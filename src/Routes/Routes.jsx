@@ -75,7 +75,8 @@ export const router = createBrowserRouter([
       {
         path: "info",
         element: <DashboardInfo />,
-        loader: () => fetch(`http://localhost:5000/countDonations`),
+        loader: () =>
+          fetch(`https://portfolio-project-server-3.vercel.app/countDonations`),
       },
       {
         path: "profile",
@@ -85,7 +86,9 @@ export const router = createBrowserRouter([
         path: "updateProfileInfo/:id",
         element: <UpdateProfileInfo />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/user/${params.id}`),
+          fetch(
+            `https://portfolio-project-server-3.vercel.app/user/${params.id}`
+          ),
       },
       {
         path: "createDonationRequest",
@@ -95,12 +98,15 @@ export const router = createBrowserRouter([
         path: "editDonationRequest/:id",
         element: <EditDonationRequest />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/donations/${params.id}`),
+          fetch(
+            `https://portfolio-project-server-3.vercel.app/donations/${params.id}`
+          ),
       },
       {
         path: "myDonationRequest",
         element: <MyDonationRequest />,
-        loader: () => fetch(`http://localhost:5000/countDonations`),
+        loader: () =>
+          fetch(`https://portfolio-project-server-3.vercel.app/countDonations`),
       },
 
       // Admin Routes
@@ -111,7 +117,8 @@ export const router = createBrowserRouter([
             <AllUsers />
           </AdminRoutes>
         ),
-        loader: () => fetch(`http://localhost:5000/totalUser`),
+        loader: () =>
+          fetch(`https://portfolio-project-server-3.vercel.app/totalUser`),
       },
       {
         path: "allBloodDonationRequest",
@@ -146,7 +153,9 @@ export const router = createBrowserRouter([
           </AdminRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/users/add-blog/${params.id}`),
+          fetch(
+            `https://portfolio-project-server-3.vercel.app/users/add-blog/${params.id}`
+          ),
       },
       {
         path: "dashboardHome",

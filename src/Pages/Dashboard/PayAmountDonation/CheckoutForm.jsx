@@ -84,7 +84,7 @@ const CheckoutForm = () => {
           price: totalAmount,
           date: new Date(),
           transactionId: paymentIntent.id, // utc converted
-          status: "pending",
+          status: "success",
         };
 
         const res = await axiosSecure.post("/payments", payment);
