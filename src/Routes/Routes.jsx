@@ -21,6 +21,9 @@ import BlogEdit from "../Pages/Dashboard/AllBlogs/BlogEdit";
 import DashboardHome from "../Pages/Dashboard/DashboardHome/DashboardHome";
 import About from "../Pages/About/About";
 import Contact from "../Pages/Contact/Contact";
+import PayAmountDonation from "../Pages/Dashboard/PayAmountDonation/PayAmountDonation";
+import PaymentHistory from "../Pages/Dashboard/PayAmountDonation/PaymentHistory";
+import MyDonation from "../Pages/Dashboard/MyDonation/MyDonation";
 
 export const router = createBrowserRouter([
   {
@@ -148,6 +151,22 @@ export const router = createBrowserRouter([
       {
         path: "dashboardHome",
         element: <DashboardHome />,
+      },
+      {
+        path: "payAmountDonation",
+        element: <PayAmountDonation />,
+      },
+      {
+        path: "paymentHistory",
+        element: <PaymentHistory />,
+      },
+      {
+        path: "myDonation",
+        element: (
+          <PrivateRoute>
+            <MyDonation />
+          </PrivateRoute>
+        ),
       },
     ],
   },
